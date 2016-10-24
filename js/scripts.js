@@ -10,17 +10,24 @@ $("document").ready(function() {
     suit = suitArray[suitcounter];
     cardArray.forEach(function(card) {
       card = cardArray[counter];
-      $("#deckshow").append("<li>" + cardArray[counter] + " of " + suit + "</li>");
-      counter++ ;
+      $("#deckshow").append("<li>" + card + " of " + suit + "</li>");
+      lineArray.push(cardArray[counter] + " of " + suit);
+      counter++;
     });
     counter = 0;
     suitcounter++;
   });
-
-console.log(suitArray.randomElement());
-console.log(cardArray.randomElement());
-});
-
-Array.prototype.randomElement = function () {
-    return this[Math.floor(Math.random() * this.length)]
+// //
+// // console.log(suitArray.randomElement());
+// // console.log(cardArray.randomElement());
+var brandNewArray = lineArray.filter(isNine);
+function isNine(value) {
+  return value.includes("9");
 }
+console.log(brandNewArray);
+
+});
+//
+// Array.prototype.randomElement = function () {
+//     return this[Math.floor(Math.random() * this.length)]
+//
